@@ -33,11 +33,16 @@ function Skills() {
   };
 
   const AddNewSkills = () => {
+    if (skillsList.length == 0 || !skillsList[skillsList.length - 1].name) {
+      window.alert("Please enter the skill");
+      return;
+    }
+
     setSkillsList([
       ...skillsList,
       {
         name: "",
-        rating: 0,
+        rating: 1,
       },
     ]);
   };

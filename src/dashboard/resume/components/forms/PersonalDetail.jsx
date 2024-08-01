@@ -93,6 +93,7 @@ function PersonalDetail({ enabledNext }) {
             <label className="text-sm">Phone</label>
             <Input
               name="phone"
+              type="tel"
               required
               defaultValue={resumeInfo?.phone}
               onChange={handleInputChange}
