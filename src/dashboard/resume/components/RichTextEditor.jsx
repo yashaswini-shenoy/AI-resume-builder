@@ -34,7 +34,7 @@ function RichTextEditor({ onRichTextEditorChange, index, defaultValue }) {
     setLoading(true);
     const prompt = PROMPT.replace(
       "{positionTitle}",
-      resumeInfo.Experience[index].title
+      resumeInfo.Experience[index].title,
     );
 
     const result = await AIChatSession.sendMessage(prompt);

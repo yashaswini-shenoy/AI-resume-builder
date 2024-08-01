@@ -50,7 +50,7 @@ function Summery({ enabledNext }) {
       },
       (error) => {
         setLoading(false);
-      }
+      },
     );
   };
   return (

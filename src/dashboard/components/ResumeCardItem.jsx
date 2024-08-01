@@ -42,7 +42,7 @@ function ResumeCardItem({ resume, refreshData }) {
       },
       (error) => {
         setLoading(false);
-      }
+      },
     );
   };
   return (

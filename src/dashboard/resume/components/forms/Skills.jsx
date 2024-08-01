@@ -66,7 +66,7 @@ function Skills() {
       (error) => {
         setLoading(false);
         toast("Server Error, Try again!");
-      }
+      },
     );
   };
 

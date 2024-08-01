@@ -43,7 +43,7 @@ function PersonalDetail({ enabledNext }) {
       },
       (error) => {
         setLoading(false);
-      }
+      },
     );
   };
   return (

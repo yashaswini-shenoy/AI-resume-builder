@@ -66,7 +66,7 @@ function Education() {
       (error) => {
         setLoading(false);
         toast("Server Error, Please try again!");
-      }
+      },
     );
   };
 

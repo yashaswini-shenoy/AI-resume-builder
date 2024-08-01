@@ -83,7 +83,7 @@ function Experience() {
       },
       (error) => {
         setLoading(false);
-      }
+      },
     );
   };
   return (

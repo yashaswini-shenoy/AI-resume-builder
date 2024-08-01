@@ -42,7 +42,7 @@ function AddResume() {
       },
       (error) => {
         setLoading(false);
-      }
+      },
     );
   };
   return (
