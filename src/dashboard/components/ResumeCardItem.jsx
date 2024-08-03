@@ -42,7 +42,7 @@ function ResumeCardItem({ resume, refreshData }) {
       },
       (error) => {
         setLoading(false);
-      },
+      }
     );
   };
   return (
@@ -68,7 +68,7 @@ function ResumeCardItem({ resume, refreshData }) {
         </div>
       </Link>
       <div
-        className="border p-3 flex justify-between  text-white rounded-b-lg shadow-lg"
+        className="border p-3 flex justify-between  text-white rounded-b-lg shadow-lg bg-primary"
         style={{
           background: resume?.themeColor,
         }}

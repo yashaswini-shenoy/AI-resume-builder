@@ -30,6 +30,7 @@ function AddResume() {
         resumeId: uuid,
         userEmail: user?.primaryEmailAddress?.emailAddress,
         userName: user?.fullName,
+        themeColor: "#003366",
       },
     };
 
@@ -42,7 +43,7 @@ function AddResume() {
       },
       (error) => {
         setLoading(false);
-      },
+      }
     );
   };
   return (
@@ -51,9 +52,9 @@ function AddResume() {
         className="p-14 py-24 border 
         items-center flex 
         justify-center bg-secondary
-        rounded-lg h-[280px]
+        rounded-lg 
         hover:scale-105 transition-all hover:shadow-md
-        cursor-pointer border-dashed"
+        cursor-pointer border-dashed h-[100%]"
         onClick={() => setOpenDialog(true)}
       >
         <PlusSquare />
