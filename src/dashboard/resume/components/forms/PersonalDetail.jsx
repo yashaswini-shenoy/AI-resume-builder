@@ -43,7 +43,7 @@ function PersonalDetail({ enabledNext }) {
       },
       (error) => {
         setLoading(false);
-      },
+      }
     );
   };
   return (
@@ -93,6 +93,7 @@ function PersonalDetail({ enabledNext }) {
             <label className="text-sm">Phone</label>
             <Input
               name="phone"
+              pattern="\d+"
               type="tel"
               required
               defaultValue={resumeInfo?.phone}

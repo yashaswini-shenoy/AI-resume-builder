@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FormSection from "../../components/FormSection";
 import ResumePreview from "../../components/ResumePreview";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import dummy from "@/data/dummy";
 import GlobalApi from "./../../../../../service/GlobalApi";
+import { useUser } from "@clerk/clerk-react";
 
 function EditResume() {
   const { resumeId } = useParams();
   const [resumeInfo, setResumeInfo] = useState();
+  const { user } = useUser();
+  const navigate = useNavigate();
+
   useEffect(() => {
-    GetResumeInfo();
-  }, []);
+    if (user) GetResumeInfo();
+  }, [user]);
 
   const GetResumeInfo = () => {
-    GlobalApi.GetResumeById(resumeId).then((resp) => {
-      setResumeInfo(resp.data.data?.attributes);
+    GlobalApi.GetResumeById(
+      resumeId,
+      user?.primaryEmailAddress?.emailAddress
+    ).then((resp) => {
+      if (!resp?.data?.data?.length) navigate("/dashboard");
+      setResumeInfo(resp.data.data[0].attributes);
     });
   };
 

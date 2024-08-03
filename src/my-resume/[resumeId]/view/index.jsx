@@ -3,20 +3,28 @@ import { Button } from "@/components/ui/button";
 import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import ResumePreview from "@/dashboard/resume/components/ResumePreview";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import GlobalApi from "./../../../../service/GlobalApi";
 import { RWebShare } from "react-web-share";
+import { useUser } from "@clerk/clerk-react";
 
 function ViewResume() {
   const [resumeInfo, setResumeInfo] = useState();
   const { resumeId } = useParams();
+  const { user } = useUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    GetResumeInfo();
-  }, []);
+    if (user) GetResumeInfo();
+  }, [user]);
+
   const GetResumeInfo = () => {
-    GlobalApi.GetResumeById(resumeId).then((resp) => {
-      setResumeInfo(resp.data.data?.attributes);
+    GlobalApi.GetResumeById(
+      resumeId,
+      user?.primaryEmailAddress?.emailAddress
+    ).then((resp) => {
+      if (!resp?.data?.data?.length) navigate("/dashboard");
+      setResumeInfo(resp.data.data[0].attributes);
     });
   };
 
@@ -27,8 +35,6 @@ function ViewResume() {
   return (
     <ResumeInfoContext.Provider value={{ resumeInfo, setResumeInfo }}>
       <div id="no-print">
-        <Header />
-
         <div className="my-10 mx-10 md:mx-20 lg:mx-36">
           <h2 className="text-center text-2xl font-medium">
             Congrats! Your Ultimate AI generates Resume is ready !{" "}
@@ -45,9 +51,8 @@ function ViewResume() {
                 text: "Hello Everyone, This is my resume please open url to see it",
                 url:
                   import.meta.env.VITE_BASE_URL +
-                  "/my-resume/" +
-                  resumeId +
-                  "/view",
+                  "/view/" +
+                  resumeInfo?.resumeId,
                 title:
                   resumeInfo?.firstName +
                   " " +

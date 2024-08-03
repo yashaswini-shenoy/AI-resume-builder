@@ -17,10 +17,19 @@ const GetUserResumes = (userEmail) =>
 const UpdateResumeDetail = (id, data) =>
   axiosClient.put("/user-resumes/" + id, data);
 
-const GetResumeById = (id) =>
-  axiosClient.get("/user-resumes/" + id + "?populate=*");
+const GetResumeById = (id, email) =>
+  axiosClient.get(
+    "/user-resumes?filters[userEmail][$eq]=" +
+      email +
+      "&filters[id][$eq]=" +
+      id +
+      "&populate[sectionPositions][populate]=*&populate=*"
+  );
 
 const DeleteResumeById = (id) => axiosClient.delete("/user-resumes/" + id);
+
+const getByUUID = (uuid) =>
+  axiosClient.get(`/user-resumes?filters[resumeId][$eq]=${uuid}&populate=*`);
 
 export default {
   CreateNewResume,
@@ -28,4 +37,5 @@ export default {
   UpdateResumeDetail,
   GetResumeById,
   DeleteResumeById,
+  getByUUID,
 };

@@ -23,6 +23,11 @@
   margin: 0mm;
 }
 
+#print-area {
+  display: flex;
+  justify-content: center;
+}
+
 .rsw-ce ul {
   list-style: disc;
   padding-left: 2em;

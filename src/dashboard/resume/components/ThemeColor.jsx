@@ -33,6 +33,7 @@ function ThemeColor() {
     "#5A33FF",
     "#FF335A",
     "#335AFF",
+    "#003366",
   ];
 
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);

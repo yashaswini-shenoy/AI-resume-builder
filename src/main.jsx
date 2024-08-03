@@ -9,6 +9,7 @@ import Dashboard from "./dashboard/index.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import EditResume from "./dashboard/resume/[resumeId]/edit/index.jsx";
 import ViewResume from "./my-resume/[resumeId]/view/index.jsx";
+import PublicView from "./my-resume/[resumeId]/public-view/index.jsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 const router = createBrowserRouter([
@@ -27,17 +28,21 @@ const router = createBrowserRouter([
         path: "/dashboard/resume/:resumeId/edit",
         element: <EditResume />,
       },
+      {
+        path: "/my-resume/:resumeId/view",
+        element: <ViewResume />,
+      },
     ],
   },
-  ,
   {
     path: "/auth/sign-in",
     element: <SignInPage />,
   },
   {
-    path: "/my-resume/:resumeId/view",
-    element: <ViewResume />,
+    path: "/view/:uuid",
+    element: <PublicView />,
   },
+  { path: "**", redirectTo: "/", pathMatch: "full" },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -45,5 +50,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <RouterProvider router={router} />
     </ClerkProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );

@@ -1,3 +1,4 @@
+import DraggableComponent from "@/components/custom/dragabble/DraggableComponent";
 import React from "react";
 
 function PersonalDetailPreview({ resumeInfo }) {

@@ -22,7 +22,7 @@ function Skills() {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
 
   useEffect(() => {
-    resumeInfo && setSkillsList(resumeInfo?.skills);
+    resumeInfo && setSkillsList(resumeInfo?.skills || []);
   }, []);
 
   const handleChange = (index, name, value) => {
@@ -33,7 +33,11 @@ function Skills() {
   };
 
   const AddNewSkills = () => {
-    if (skillsList.length == 0 || !skillsList[skillsList.length - 1].name) {
+    if (
+      skillsList &&
+      skillsList.length > 0 &&
+      !skillsList[skillsList.length - 1].name
+    ) {
       window.alert("Please enter the skill");
       return;
     }
@@ -51,6 +55,15 @@ function Skills() {
   };
 
   const onSave = () => {
+    if (
+      skillsList &&
+      skillsList.length > 0 &&
+      !skillsList[skillsList.length - 1].name
+    ) {
+      window.alert("Please enter the skill");
+      return;
+    }
+
     setLoading(true);
     const data = {
       data: {
@@ -66,7 +79,7 @@ function Skills() {
       (error) => {
         setLoading(false);
         toast("Server Error, Try again!");
-      },
+      }
     );
   };
 
