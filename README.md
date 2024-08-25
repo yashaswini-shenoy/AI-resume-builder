@@ -76,11 +76,9 @@ The AI Resume Builder is a web application designed to assist users in creating 
      ```
    - Start the backend server:
 
-   ````bash
+   ```bash
    npm run dev
    ```
-
-   ````
 
 2. **Frontend Setup**:
 
@@ -89,14 +87,6 @@ The AI Resume Builder is a web application designed to assist users in creating 
      git clone https://github.com/your-username/ai-resume-builder.git
      cd ai-resume-builder
      ```
-
-   ````
-
-     <!-- - Navigate to the frontend directory:
-       ```bash
-       cd frontend
-       ``` -->
-
    - Install dependencies:
      ```bash
      npm install
@@ -114,7 +104,10 @@ The AI Resume Builder is a web application designed to assist users in creating 
    ```bash
    npm run dev
    ```
-   ````
+
+   ```
+
+   ```
 
 ## Usage
 
