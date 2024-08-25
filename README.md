@@ -7,9 +7,9 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints)
+<!-- - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
+- [License](#license) -->
 - [Contact](#contact)
 
 ## Project Overview
@@ -33,7 +33,7 @@ The AI Resume Builder is a web application designed to assist users in creating 
 
 ## Technologies Used
 
-- **Frontend**: React
+- **Frontend**: React, Tailwind
 - **Backend**: Strapi CMS, Postgres
 - **Deployment**: Render.com
 
@@ -47,53 +47,81 @@ The AI Resume Builder is a web application designed to assist users in creating 
 
 ### Steps
 
-1. **Clone the repository**:
+<!-- 1. **Clone the repository**: -->
 
-   ```bash
-   git clone https://github.com/your-username/ai-resume-builder.git
-   cd ai-resume-builder
-   ```
+```bash
+git clone https://github.com/your-username/ai-resume-builder.git
+cd ai-resume-builder
+```
 
-<!-- 2. **Backend Setup**:
+1. **Backend Setup**:
 
-   - Navigate to the backend directory:
+   - Clone the frontend repository
      ```bash
-     cd backend
+     git clone https://github.com/yashaswini-shenoy/AI-resume-builder-strapi-backend.git
+     cd ai-resume-builder
      ```
-   - Install dependencies:
-     ```bash
-     npm install
-     ```
-   - Set up the PostgreSQL database and configure the environment variables in `.env` file:
-     ```env
-     DATABASE_HOST=your-database-host
-     DATABASE_PORT=your-database-port
-     DATABASE_NAME=your-database-name
-     DATABASE_USERNAME=your-database-username
-     DATABASE_PASSWORD=your-database-password
-     ```
-   - Start the backend server:
-     ```bash
-     npm run develop
-     ``` -->
-
-2. **Frontend Setup**:
-   - Navigate to the frontend directory:
-     ```bash
-     cd frontend
-     ```
+     <!-- - Navigate to the frontend directory:
+       ```bash
+       cd frontend
+       ``` -->
    - Install dependencies:
      ```bash
      npm install
      ```
    - Configure the environment variables in `.env` file:
      ```env
-     REACT_APP_API_URL=your-backend-url
+      ADMIN_JWT_SECRET=admin_jwt_token
+      API_TOKEN_SALT=api_token_salt
+      APP_KEYS=app_keys
+      DATABASE_CLIENT=databse_client
+      DATABASE_FILENAME=.tmp/data.db
+      HOST=db_host
+      JWT_SECRET=jwt_secret
+      PORT=db_port
+      TRANSFER_TOKEN_SALT=transfer_token_salt
+     ```
+   - Start the backend server:
+
+   ````bash
+   npm run dev
+   ```
+
+   ````
+
+2. **Frontend Setup**:
+
+   - Clone the frontend repository
+     ```bash
+     git clone https://github.com/your-username/ai-resume-builder.git
+     cd ai-resume-builder
+     ```
+
+   ````
+
+     <!-- - Navigate to the frontend directory:
+       ```bash
+       cd frontend
+       ``` -->
+
+   - Install dependencies:
+     ```bash
+     npm install
+     ```
+   - Configure the environment variables in `.env` file:
+     ```env
+     VITE_API_BASE_URL=api_local_base_url
+     VITE_BASE_URL=frontend_local_base_url
+     VITE_CLERK_PUBLISHABLE_KEY=clerk_publishable_key
+     VITE_GOOGLE_AI_API_KEY=google_api_key
+     VITE_STRAPI_API_KEY=strapi_api_key
      ```
    - Start the frontend server:
-     ```bash
-     npm start
-     ```
+
+   ```bash
+   npm run dev
+   ```
+   ````
 
 ## Usage
 
@@ -107,7 +135,7 @@ The AI Resume Builder is a web application designed to assist users in creating 
 8. **Customize Theme**: Choose and customize the resume theme.
 9. **Download or Share**: Download your resume as a PDF or share it via a link.
 
-## API Endpoints
+<!-- ## API Endpoints
 
 ### Authentication
 
@@ -126,27 +154,16 @@ The AI Resume Builder is a web application designed to assist users in creating 
 - `GET /sections`: Get all sections of a resume.
 - `POST /sections`: Create a new section in a resume.
 - `PUT /sections/:id`: Update an existing section.
-- `DELETE /sections/:id`: Delete a section.
-
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes and commit them.
-4. Push your changes to your forked repository.
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+- `DELETE /sections/:id`: Delete a section. -->
 
 ## Contact
 
-`
 For any inquiries or feedback, please reach out to:
 
-- Name: [Your Name]
-- Email: [your-email@example.com]
-- LinkedIn: [Your LinkedIn Profile]
+- Name: [U Yashaswini Shenoy]
+- Email: [yashushenoy98@gmail.com]
+- LinkedIn: [https://www.linkedin.com/in/yashaswinishenoy/]
+
+```
+
+```
