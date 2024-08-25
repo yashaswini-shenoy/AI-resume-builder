@@ -49,22 +49,15 @@ The AI Resume Builder is a web application designed to assist users in creating 
 
 <!-- 1. **Clone the repository**: -->
 
-```bash
-git clone https://github.com/your-username/ai-resume-builder.git
-cd ai-resume-builder
-```
-
 1. **Backend Setup**:
 
    - Clone the frontend repository
+
      ```bash
      git clone https://github.com/yashaswini-shenoy/AI-resume-builder-strapi-backend.git
      cd ai-resume-builder
      ```
-     <!-- - Navigate to the frontend directory:
-       ```bash
-       cd frontend
-       ``` -->
+
    - Install dependencies:
      ```bash
      npm install
